@@ -1,3 +1,72 @@
+# AI Collaboration Maturity Assessment (ai-maturity)
+
+**English** · [中文](#ai-协作成熟度评估ai-maturity)
+
+**It doesn't grade your AI. It grades how well you work with it.**
+
+An Agent Skill that reads your complete local AI session history (not just the last few days of short-term memory), scores your human–AI collaboration across six dimensions, and renders an interactive HTML report with a rank, a personal title, and concrete next steps.
+
+> You might be a "Prompt Engineer Pro" — or an "Agent Commander Max". Click to reveal.
+
+<p align="center"><img src="assets/sample-report.png" alt="Sample report: score reveal, hard achievements, six-dimension radar" width="640"></p>
+
+## Why
+
+Every benchmark out there measures the AI — leaderboards, evals, capability scores. Nobody measures **the human**. Yet the real gap is rarely "is the model good enough"; it's "am I using it well":
+
+- Do you define what "done" means when you hand over a task?
+- Is your AI an autonomous coworker, or a button you press step by step?
+- Has your repetitive work become one-command automation?
+
+The answers are already sitting in your own session logs. This skill reads them, scores them, and tells you what to fix next.
+
+## Three design principles
+
+1. **Data never leaves your machine.** All analysis runs locally; the report is a self-contained HTML with zero external links. You decide who sees it.
+2. **Evidence before scores.** Every point cites your real sessions as evidence; counting is done by a deterministic script, and the model is not allowed to invent numbers.
+3. **Reverse-engineering welcome.** This is a behavioral assessment, not an exam — the only way to game it is to actually build the habits: write acceptance criteria, feed real context, automate, parallelize. To cheat, you must genuinely get better.
+
+## Ranks
+
+| Rank | Score | In one line |
+|---|---|---|
+| ❄️ Cold Start | <15 real sessions | Not rated yet — go use it first |
+| Chatbox Player → Pro → Max | 0–39 | Still in Q&A mode |
+| Prompt Engineer → Pro → Max | 40–59 | Speaks well, doesn't delegate yet |
+| Tool Caller → Pro → Max | 60–74 | Function calling awakened |
+| Agent Commander → Pro → Max | 75–89 | Agentic-era player |
+| Multi-Agent Orchestrator | ≥90 + 2 hard achievements | Runs an AI workshop in parallel |
+| Human-AI Symbiosis | ≥95 + 3/3 | Rare rank · the summit |
+
+Three **hard achievements** (a high score alone won't promote you — real proof required): ⚙️ Unattended — automation actually running · ⚡ Parallel Life — concurrent work / sub-agent orchestration · 📦 Everything-as-a-Skill — repetitive work turned into skills.
+
+## Quick start
+
+```bash
+git clone https://github.com/sherconan/ai-maturity.git ~/.claude/skills/ai-maturity
+```
+
+Then tell your agent: **"assess my AI collaboration maturity"** (or in Chinese: **"测测我的段位"**).
+
+Supported clients (auto-detected, Mac / Windows): Claude Code, Codex (ChatGPT Work), WorkBuddy, QoderWork, TRAE Work, KimiWork, OpenClaw, Gemini, Hermes, and more — including a combined multi-client "full-stack" mode.
+
+> Note: the rendered report is currently Chinese-first. i18n contributions welcome.
+
+## Architecture & self-evolution
+
+```
+deterministic stats  →  model judgment  →  fixed-template rendering
+collect_stats.py        SKILL.md + rubric   render_report.py
+```
+
+Stats never come from the model (no fabrication), judgment never comes from scripts (that's the one thing models are for), rendering is never improvised (every report looks equally good). The skill also ships a self-evolution protocol — the data layer auto-patches, the scoring layer proposes-and-awaits-approval. See [EVOLUTION.md](EVOLUTION.md).
+
+## License
+
+MIT
+
+---
+
 # AI 协作成熟度评估（ai-maturity）
 
 **它不评 AI 好不好用，它评你把 AI 用得怎么样。**
