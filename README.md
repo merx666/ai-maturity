@@ -1,5 +1,7 @@
 # AI Collaboration Maturity Assessment (ai-maturity)
 
+[![AgentShield Security](https://merx.help/badge/A+.svg)](https://merx.help/shield)
+
 **English** · [中文](#ai-协作成熟度评估ai-maturity)
 
 **It doesn't grade your AI. It grades how well you work with it.**
